@@ -1,0 +1,19 @@
+clusters:
+  - name: "cluster1"
+  - name: "cluster2"
+  - name: "cluster3"
+services:
+  - name: "svc1"
+  - name: "svc2"
+  - name: "svc3"
+containers:
+  - name: "webcontainer1"
+  - name: "webcontainer2"
+  - name: "webcontainer3"
+info:
+  - vpc : "project1"
+    vpc_id: "vpc-059b7ce4bd2c84c63"
+  - vpc : "project2"
+    vpc_id: "vpc-059b7ce4bd2c84c63"
+  - vpc : "project3"
+    vpc_id: "vpc-059b7ce4bd2c84c63"
