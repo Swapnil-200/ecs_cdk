@@ -2,7 +2,6 @@ from variables import (
     LB,
     image, 
     port,
-    #inbound,
     listener_port,
     cpu
 )
