@@ -1,0 +1,35 @@
+name: Push Changes on Push
+ 
+on:
+  push:
+    branches:
+      - main # Triggers on pushes to the 'main' branch
+ 
+jobs:
+  push_code:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+ 
+      # Step 2: Configure Git with your username and email
+      - name: Configure Git
+        run: |
+          git config --global user.name "swapnil_k"
+          git config --global user.email "swapnilsk2019@gmail.com"
+ 
+      # Step 3: Commit and push changes
+      - name: Commit and push changes
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git add .
+          git commit -m "Auto-pushed by GitHub Actions"
+          git push https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+ 
+      # Step 4: Stop the pipeline
+      - name: Stop pipeline after push
+        if: always() # Ensures this step runs, no matter what happens before
+        run: echo "Pipeline has completed and is now stopping."
